@@ -1,0 +1,32 @@
+<%= flash_messages %>
+<h2>Document</h2>
+<p>
+  <strong>Doctype:</strong>
+  <%= @document.doctype %>
+</p>
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @document.title %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @document.attachment %>
+</p>
+
+
+<p>
+  <strong>Desc:</strong>
+  <%= @document.desc %>
+</p>
+
+
+<p>
+  <strong>Serialno:</strong>
+  <%= @document.serialno %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) , class: "btn btn-warning" %> |
+<%= link_to 'Back', documents_path, class: "btn btn-default"  %>

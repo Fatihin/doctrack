@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App:</strong>
+  <%= @assign.app %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @assign.user %>
+</p>
+
+<p>
+  <strong>Form:</strong>
+  <%= @assign.form %>
+</p>
+
+<%= link_to 'Edit', edit_assign_path(@assign) %> |
+<%= link_to 'Back', assigns_path %>

@@ -1,0 +1,46 @@
+<%= form_for(app) do |f| %>
+  <% if app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(app.errors.count, "error") %> prohibited this app from being saved:</h2>
+
+      <ul>
+      <% app.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :startdate %><br>
+    <%= f.datetime_select :startdate, class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :enddate %><br>
+    <%= f.datetime_select :enddate, class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :status %><br>
+    <%= f.text_field :status, class: "form-control" %>
+  </div>
+  </div>
+
+  
+   <div class="actions">
+    <%= f.submit 'Create', class: "btn btn-primary" %>
+    </div>
+<% end %>

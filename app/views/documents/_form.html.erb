@@ -1,0 +1,49 @@
+<%= form_for(document) do |f| %>
+  <% if document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  </div>
+   <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :attachment %><br>
+    <%= f.text_field :attachment, class: "form-control" %>
+  </div>
+</div>
+  
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :desc %><br>
+    <%= f.text_field :desc, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :serialno %><br>
+    <%= f.text_field :serialno, class: "form-control" %>
+  </div>
+  </div>
+
+   <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :Form %><br>
+    <%= f.collection_select :form_id, Form.all, :id, :formname, prompt: true , class: "form-control" %>
+  </div>
+  </div>
+ <div class="actions">
+<%= f.submit 'Create', class: "btn btn-primary" %>
+</div>
+<% end %>

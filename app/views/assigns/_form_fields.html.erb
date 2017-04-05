@@ -1,0 +1,9 @@
+    <%= f.fields_for :form do |form| %>
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :formname %>
+    <% end %>
+
+    <%= f.check_box :done %>
+    <%= f.label :done %>
+
+    <%= link_to_remove_association "remove", f %><br />

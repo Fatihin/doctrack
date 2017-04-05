@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctype: MyString
+  ,: MyString
+  title: MyString
+  : MyString
+  ,: MyString
+  attachment: MyString
+  ,: MyString
+  desc: MyString
+  ,: MyString
+  serialno: MyString
+
+two:
+  doctype: MyString
+  ,: MyString
+  title: MyString
+  : MyString
+  ,: MyString
+  attachment: MyString
+  ,: MyString
+  desc: MyString
+  ,: MyString
+  serialno: MyString

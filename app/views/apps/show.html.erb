@@ -1,0 +1,34 @@
+<%= flash_messages %>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @app.startdate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @app.enddate %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @app.location %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @app.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @app.user %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @app.document %>
+</p>
+
+<%= link_to 'Edit', edit_app_path(@app) , class: "btn btn-warning" %> |
+<%= link_to 'Back', apps_path , class: "btn btn-default"  %>
