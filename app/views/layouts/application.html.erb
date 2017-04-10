@@ -4,7 +4,7 @@
   <title>Document Tracking System for FSKM</title>
   <%= stylesheet_link_tag	'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'countdown' %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -60,6 +60,7 @@
     </div>
   </nav>
   <div id="main-container" class="container">
+    
     <%= yield %>
   </div>
 </body>

@@ -5,6 +5,7 @@ class AssignsController < ApplicationController
   # GET /assigns.json
   def index
     @assigns = Assign.all
+
   end
 
   # GET /assigns/1
@@ -24,8 +25,9 @@ class AssignsController < ApplicationController
   # POST /assigns
   # POST /assigns.json
   def create
-    @assign = Assign.new(assign_params)
 
+    @assign = Assign.new(assign_params)
+    @assigns = current_user.assigns.new(assign_params)
     respond_to do |format|
       if @assign.save
         format.html { redirect_to @assign, notice: 'Assign was successfully created.' }
@@ -69,7 +71,6 @@ class AssignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assign_params
-      params.require(:assign).permit(:app_id, :user_id, :form_id ,
-       forms_attributes: [:formname] )
+      params.require(:assign).permit(:user_id, :app_id, :duedate, :dayleft)
     end
 end

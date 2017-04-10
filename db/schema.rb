@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403232302) do
+ActiveRecord::Schema.define(version: 20170410163236) do
 
   create_table "apps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "startdate"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20170403232302) do
   end
 
   create_table "assigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "app_id"
     t.integer  "user_id"
-    t.integer  "form_id"
+    t.integer  "app_id"
+    t.date     "duedate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "dayleft"
     t.index ["app_id"], name: "index_assigns_on_app_id", using: :btree
-    t.index ["form_id"], name: "index_assigns_on_form_id", using: :btree
     t.index ["user_id"], name: "index_assigns_on_user_id", using: :btree
   end
 
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20170403232302) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -94,8 +103,9 @@ ActiveRecord::Schema.define(version: 20170403232302) do
   add_foreign_key "apps", "documents"
   add_foreign_key "apps", "users"
   add_foreign_key "assigns", "apps"
-  add_foreign_key "assigns", "forms"
   add_foreign_key "assigns", "users"
   add_foreign_key "documents", "forms"
   add_foreign_key "documents", "users"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
 end

@@ -23,12 +23,13 @@
           <td class="col-md-2"><%= app.location %></td>
           <td class="col-md-2"><%= app.status%></td>
           <td class="col-md-2"><%= app.user.try(:iduser)%></td>
-          <td class="col-md-2"><%= app.document_id%></td>
+          <td class="col-md-2"><%= app.document.try(:serialno)%></td>
           <td class="col-md-2">
             <%= link_to 'Show', app_path(app), class: "btn btn-info" %>
             <%= link_to 'Edit', edit_app_path(app), class: "btn  btn-warning" %>
             <%= link_to 'Destroy', app_path(app), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </td>
+     
       </tr>
       <% end %>
     </tbody>

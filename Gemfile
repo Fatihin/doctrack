@@ -36,7 +36,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
-gem 'countdown'
+gem 'jquery-countdown-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -8,3 +8,10 @@
 </div>
 </div>
 </div>
+    <%if current_user.try(:admin?) %>
+     <h3>Welcome Super Admin</h3>
+    <% elsif current_user.try(:staff?) %>
+   <h3>Welcome, Company Admin</h3>
+    <% else %>
+   <h3>Welcome</h3>
+    <% end %>

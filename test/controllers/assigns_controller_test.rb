@@ -17,7 +17,7 @@ class AssignsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create assign" do
     assert_difference('Assign.count') do
-      post assigns_url, params: { assign: { app_id: @assign.app_id, form_id: @assign.form_id, user_id: @assign.user_id } }
+      post assigns_url, params: { assign: { app_id: @assign.app_id, duedate: @assign.duedate, user_id: @assign.user_id } }
     end
 
     assert_redirected_to assign_url(Assign.last)
@@ -34,7 +34,7 @@ class AssignsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update assign" do
-    patch assign_url(@assign), params: { assign: { app_id: @assign.app_id, form_id: @assign.form_id, user_id: @assign.user_id } }
+    patch assign_url(@assign), params: { assign: { app_id: @assign.app_id, duedate: @assign.duedate, user_id: @assign.user_id } }
     assert_redirected_to assign_url(@assign)
   end
 

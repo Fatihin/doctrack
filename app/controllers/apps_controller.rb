@@ -17,6 +17,7 @@ class AppsController < ApplicationController
   # GET /apps/new
   def new
     @app = App.new
+ 
   end
 
   # GET /apps/1/edit
@@ -28,6 +29,8 @@ class AppsController < ApplicationController
   def create
     @app = App.new(app_params)
     @app.user = current_user
+    @document = Document.create(params[:document])
+    @app.document = @document
    
 
       if @app.save
@@ -43,8 +46,8 @@ class AppsController < ApplicationController
   # PATCH/PUT /apps/1
   # PATCH/PUT /apps/1.json
   def update
- 
-      if @app.update(app_params)
+      @app = App.find(params[:id])  
+      if @app.update_attributes(allowed_params)
          redirect_to @app, notice: 'App was successfully updated.' 
     
       else
@@ -69,6 +72,7 @@ class AppsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def app_params
-      params.require(:app).permit(:startdate, :enddate, :location, :status, :user_id, :document_id)
+      params.require(:app).permit(:startdate, :enddate, :location, :status, :user_id, :document_id,
+        assigns_attributes: [:id, :user_id, :app_id ,:duedate, :_destroy])
     end
 end

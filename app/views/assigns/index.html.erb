@@ -5,9 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>App</th>
       <th>User</th>
-      <th>Form</th>
+      <th>Document</th>
+      <th>Duedate</th>
+      <th>Staff handle</th>
+      <th>Day Left</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +17,12 @@
   <tbody>
     <% @assigns.each do |assign| %>
       <tr>
-        <td><%= assign.app %></td>
-        <td><%= assign.user %></td>
-        <td><%= assign.form %></td>
-   
+        <td><%= assign.user.try(:username) %></td>
+        <td><%= assign.app.document.try(:serialno) %></td>
+        <td><%= assign.duedate %></td>
+        <td><%= current_user.try(:username) %></td>
+        <td><%= (assign.duedate - Date.today).to_i %></td>
+       
         <td><%= link_to 'Show', assign %></td>
         <td><%= link_to 'Edit', edit_assign_path(assign) %></td>
         <td><%= link_to 'Destroy', assign, method: :delete, data: { confirm: 'Are you sure?' } %></td>

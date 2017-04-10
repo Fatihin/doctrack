@@ -39,6 +39,24 @@
   </div>
   </div>
 
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :document_id %><br>
+    <%= f.text_field :document_id, class: "form-control" %>
+
+  </div>
+  </div>
+
+  <%= f.fields_for :assigns, Assign.new do |assign| %>
+  <div class = "row">
+  <div class="form-group col-md-4">
+   
+    <%= assign.date_select :duedate %>
+  
+  </div>
+  </div>
+  <% end %>
+
   
    <div class="actions">
     <%= f.submit 'Create', class: "btn btn-primary" %>

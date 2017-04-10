@@ -12,32 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :app_id %>
-    <%= f.collection_select :app_id, App.all, :id, :id, prompt: true , class: "form-control" %>
-  </div>
-
-  <div class="field">
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, User.all, :id, :username, prompt: true , class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :form_id %>
-    <%= f.collection_select :form_id, Form.all, :id, :formname, prompt: true , class: "form-control" %>
+    <%= f.label :app_id %>
+    <%= f.collection_select :app_id, App.all, :id, :document_id, prompt: true , class: "form-control" %>
   </div>
 
-  <div class="countdown">
-  <span class="days day_001">1</span>
-  <span class="day-separator">d</span>
-  <span class="hours hour_03">03</span>
-  <span class="hour-separator">h</span>
-  <span class="minutes minute_59">59</span>
-  <span class="minute-separator">m</span>
-  <span class="seconds second_59">59</span>
-  <span class="minute-separator">s</span>
-</div>
+  <div class="field">
+    <%= f.label :duedate %>
+    <%= f.date_select :duedate %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>

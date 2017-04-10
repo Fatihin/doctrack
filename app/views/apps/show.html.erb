@@ -29,6 +29,8 @@
   <strong>Document:</strong>
   <%= @app.document %>
 </p>
-
+<% for assign in @app.assigns %>
+<%= assign.duedate %>
+<% end %>
 <%= link_to 'Edit', edit_app_path(@app) , class: "btn btn-warning" %> |
 <%= link_to 'Back', apps_path , class: "btn btn-default"  %>
